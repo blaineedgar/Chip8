@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "sdl.h": "c",
+        "stdlib.h": "c",
+        "stdbool.h": "c",
+        "stdio.h": "c"
+    },
+    "cmake.sourceDirectory": "C:/Users/blain/OneDrive/Documents/Programming/Personal Projects/CHIP8Emulator/include/SDL2-2.30.10/test",
+    "C_Cpp.errorSquiggles": "disabled"
+}
