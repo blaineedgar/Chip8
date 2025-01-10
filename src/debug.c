@@ -206,7 +206,7 @@ void decodeDump(chip8 system){
         }*/
 
        //breakpoint
-        if(system.PC==0x320){
+        if(system.PC==0x716){
             break; 
         }
 
