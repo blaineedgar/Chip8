@@ -1,0 +1,144 @@
+200     6       e               5       SET; IMMEDIATE ADDRESSING
+202     6       5                       SET; IMMEDIATE ADDRESSING
+204     6       b               6       SET; IMMEDIATE ADDRESSING
+206     6       a                       SET; IMMEDIATE ADDRESSING
+208     a       3               c       SET INDEX
+20A     d       a       b       1       DRAW
+20C     7       a               4       ADD; IMMEDIATE ADDRESSING
+20E     3       a       4               SKIP ON EQUALS; IMMEDIATE ADDRESSING
+210     1       2               8       JUMP
+212     7       b               2       ADD; IMMEDIATE ADDRESSING
+214     3       b       1       2       SKIP ON EQUALS; IMMEDIATE ADDRESSING
+216     1       2               6       JUMP
+218     6       c       2               SET; IMMEDIATE ADDRESSING
+21A     6       d       1       f       SET; IMMEDIATE ADDRESSING
+21C     a       3       1               SET INDEX
+21E     d       c       d       1       DRAW
+220     2       2       f       6       CALL SUBROUTINE
+222     6                               SET; IMMEDIATE ADDRESSING
+224     6       1                       SET; IMMEDIATE ADDRESSING
+226     a       3       1       2       SET INDEX
+228     d               1       1       DRAW
+22A     7                       8       ADD; IMMEDIATE ADDRESSING
+22C     a       3               e       SET INDEX
+22E     d               1       1       DRAW
+230     6               4               SET; IMMEDIATE ADDRESSING
+232     f               1       5       SET DT TO VX
+234     f                       7       SET VX TO DT
+236     3                               SKIP ON EQUALS; IMMEDIATE ADDRESSING
+238     1       2       3       4       JUMP
+23A     c       6               f       RANDOM
+23C     6       7       1       e       SET; IMMEDIATE ADDRESSING
+23E     6       8               1       SET; IMMEDIATE ADDRESSING
+240     6       9       f       f       SET; IMMEDIATE ADDRESSING
+242     a       3               e       SET INDEX
+244     d       6       7       1       DRAW				;drawing the ball at 6,7. clear the ball
+246     a       3       1               SET INDEX
+248     d       c       d       1       DRAW				;xor the paddle
+24A     6                       4       SET; IMMEDIATE ADDRESSING
+24C     e               a       1       SKIP IF NOT X			;left move
+24E     7       c       f       e       ADD; IMMEDIATE ADDRESSING
+250     6                       6       SET; IMMEDIATE ADDRESSING
+252     e               a       1       SKIP IF NOT X			;right move
+254     7       c               2       ADD; IMMEDIATE ADDRESSING
+256     6               3       f       SET; IMMEDIATE ADDRESSING
+258     8       c               2       AND				;and c and 0? why broooo
+25A     d       c       d       1       DRAW
+25C     a       3               e       SET INDEX
+25E     d       6       7       1       DRAW				;place teh ball
+260     8       6       8       4       ADD; REGISTER ADDRESSING	;adding with the determined vector velocities
+262     8       7       9       4       ADD; REGISTER ADDRESSING
+264     6               3       f       SET; IMMEDIATE ADDRESSING
+266     8       6               2       AND
+268     6       1       1       f       SET; IMMEDIATE ADDRESSING
+26A     8       7       1       2       AND
+26C     4       7       1       f       SKIP ON NOT EQUALS; IMMEDIATE ADDRESSING	;this is when the ball reaches the bottom
+26E     1       2       a       c       JUMP						;collision for all 4 corners
+270     4       6                       SKIP ON NOT EQUALS; IMMEDIATE ADDRESSING	;checking the x position
+272     6       8               1       SET; IMMEDIATE ADDRESSING			;reversing the x direction
+274     4       6       3       f       SKIP ON NOT EQUALS; IMMEDIATE ADDRESSING	;far right side
+276     6       8       f       f       SET; IMMEDIATE ADDRESSING			;reverse x direction
+278     4       7                       SKIP ON NOT EQUALS; IMMEDIATE ADDRESSING	;;checking the y, if it is at the top.
+27A     6       9               1       SET; IMMEDIATE ADDRESSING			;invert the vertical velocity
+27C     d       6       7       1       DRAW						;redraw
+27E     3       f               1       SKIP ON EQUALS; IMMEDIATE ADDRESSING		;checking for collision
+280     1       2       a       a       JUMP						;this goes somewhere else, not to the collision.
+282     4       7       1       f       SKIP ON NOT EQUALS; IMMEDIATE ADDRESSING	;checking if we hit the bottom, the paddle
+284     1       2       a       a       JUMP						;so then this is the paddler bounce. i imagine it will check 
+286     6                       5       SET; IMMEDIATE ADDRESSING			;so then this is the brick break routine
+288     8               7       5       SUBTRACT; VX - VY				;what is this?
+28A     3       f                       SKIP ON EQUALS; IMMEDIATE ADDRESSING		;we should not be skipping. the flag should be 0
+28C     1       2       a       a       JUMP						;
+28E     6                       1       SET; IMMEDIATE ADDRESSING
+290     f               1       8       SET ST TO VX
+292     8               6               SET; REGISTER ADDRESSING
+294     6       1       f       c       SET; IMMEDIATE ADDRESSING
+296     8               1       2       AND
+298     a       3               c       SET INDEX
+29A     d               7       1       DRAW
+29C     6               f       e       SET; IMMEDIATE ADDRESSING
+29E     8       9               3       XOR
+2A0     2       2       f       6       CALL SUBROUTINE
+2A2     7       5               1       ADD; IMMEDIATE ADDRESSING 
+2A4     2       2       f       6       CALL SUBROUTINE
+2A6     4       5       6               SKIP ON NOT EQUALS; IMMEDIATE ADDRESSING
+2A8     1       2       d       e       JUMP
+2AA     1       2       4       6       JUMP						;here from 280, back to the normal one
+2AC     6       9       f       f       SET; IMMEDIATE ADDRESSING			;here when we reach the bottoe
+2AE     8               6               SET; REGISTER ADDRESSING
+2B0     8               c       5       SUBTRACT; VX - VY				;is c the lives
+2B2     3       f               1       SKIP ON EQUALS; IMMEDIATE ADDRESSING
+2B4     1       2       c       a       JUMP
+2B6     6       1               2       SET; IMMEDIATE ADDRESSING
+2B8     8               1       5       SUBTRACT; VX - VY
+2BA     3       f               1       SKIP ON EQUALS; IMMEDIATE ADDRESSING
+2BC     1       2       e               JUMP
+2BE     8               1       5       SUBTRACT; VX - VY
+2C0     3       f               1       SKIP ON EQUALS; IMMEDIATE ADDRESSING
+2C2     1       2       e       e       JUMP
+2C4     8               1       5       SUBTRACT; VX - VY
+2C6     3       f               1       SKIP ON EQUALS; IMMEDIATE ADDRESSING
+2C8     1       2       e       8       JUMP
+2CA     6               2               SET; IMMEDIATE ADDRESSING
+2CC     f               1       8       SET ST TO VX
+2CE     a       3               e       SET INDEX
+2D0     7       e       f       f       ADD; IMMEDIATE ADDRESSING
+2D2     8               e               SET; REGISTER ADDRESSING
+2D4     8                       4       ADD; REGISTER ADDRESSING
+2D6     6       1                       SET; IMMEDIATE ADDRESSING
+2D8     d               1       1       DRAW
+2DA     3       e                       SKIP ON EQUALS; IMMEDIATE ADDRESSING
+2DC     1       2       3               JUMP
+2DE     1       2       d       e       JUMP
+2E0     7       8       f       f       ADD; IMMEDIATE ADDRESSING
+2E2     4       8       f       e       SKIP ON NOT EQUALS; IMMEDIATE ADDRESSING
+2E4     6       8       f       f       SET; IMMEDIATE ADDRESSING
+2E6     1       2       e       e       JUMP
+2E8     7       8               1       ADD; IMMEDIATE ADDRESSING
+2EA     4       8               2       SKIP ON NOT EQUALS; IMMEDIATE ADDRESSING
+2EC     6       8               1       SET; IMMEDIATE ADDRESSING
+2EE     6                       4       SET; IMMEDIATE ADDRESSING
+2F0     f               1       8       SET ST TO VX
+2F2     6       9       f       f       SET; IMMEDIATE ADDRESSING
+2F4     1       2       7               JUMP
+2F6     a       3       1       4       SET INDEX
+2F8     f       5       3       3       BINARY TO DECIMAL FROM VX INTO I
+2FA     f       2       6       5       LOAD REGISTERS FROM I INTO V0 - VX
+2FC     f       1       2       9       GET FONT CHARACTER
+2FE     6       3       3       7       SET; IMMEDIATE ADDRESSING
+300     6       4                       SET; IMMEDIATE ADDRESSING
+302     d       3       4       5       DRAW
+304     7       3               5       ADD; IMMEDIATE ADDRESSING
+306     f       2       2       9       GET FONT CHARACTER
+308     d       3       4       5       DRAW
+30A                     e       e       RETURN FROM SUBROUTINE
+30C     e                               SPRITES
+30E     8                               SET; REGISTER ADDRESSING
+310     f       c                       SPRITES
+312     a       a                       SET INDEX
+314                                     MACHINE LANGUAGE ROUTINE
+316                                     MACHINE LANGUAGE ROUTINE
+318                                     MACHINE LANGUAGE ROUTINE
+31A     f       f       f       f       SPRITES
+31C     f       f       f       f       SPRITES
+31E     f       f       f       f       SPRITES

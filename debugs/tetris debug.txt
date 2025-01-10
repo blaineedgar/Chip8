@@ -1,0 +1,248 @@
+200     a       2       b       4       SET INDEX
+202     2       3       e       6       CALL SUBROUTINE
+204     2       2       b       6       CALL SUBROUTINE
+206     7                       1       ADD; IMMEDIATE ADDRESSING
+208     d               1       1       DRAW
+20A     3               2       5       SKIP ON EQUALS; IMMEDIATE ADDRESSING
+20C     1       2               6       JUMP
+20E     7       1       f       f       ADD; IMMEDIATE ADDRESSING
+210     d               1       1       DRAW
+212     6               1       a       SET; IMMEDIATE ADDRESSING
+214     d               1       1       DRAW
+216     6               2       5       SET; IMMEDIATE ADDRESSING
+218     3       1                       SKIP ON EQUALS; IMMEDIATE ADDRESSING
+21A     1       2               e       JUMP
+21C     c       4       7               RANDOM
+21E     4       4       7               SKIP ON NOT EQUALS; IMMEDIATE ADDRESSING
+220     1       2       1       c       JUMP
+222     c       3               3       RANDOM
+224     6               1       e       SET; IMMEDIATE ADDRESSING
+226     6       1               3       SET; IMMEDIATE ADDRESSING
+228     2       2       5       c       CALL SUBROUTINE
+22A     f       5       1       5       SET DT TO VX	;set the timer again
+22C     d               1       4       DRAW		;redraw in the new position.. draw it in for the flag
+22E     3       f               1       SKIP ON EQUALS; IMMEDIATE ADDRESSING	;if collision, if its dropped.
+230     1       2       3       c       JUMP		;go back to the loop
+232     d               1       4       DRAW		;draw it out?
+234     7       1       f       f       ADD; IMMEDIATE ADDRESSING	;subtract from Y
+236     d               1       4       DRAW		;draw in new posions above
+238     2       3       4               CALL SUBROUTINE	;here we will now drop it, and then play the drop animation
+23A     1       2       1       c       JUMP
+23C     e       7       a       1       SKIP IF NOT X		; checking if 5, left button
+23E     2       2       7       2       CALL SUBROUTINE		; interrupt handler
+240     e       8       a       1       SKIP IF NOT X		;check if 6, right button
+242     2       2       8       4       CALL SUBROUTINE	
+244     e       9       a       1       SKIP IF NOT X		;check if 4, slow down
+246     2       2       9       6       CALL SUBROUTINE		
+248     e       2       9       e       SKIP IF X		;check if 7, accelerator
+24A     1       2       5               JUMP			;this jumps to the timer countdown; else we just go at 0 basically as fast as it will allow
+24C     6       6                       SET; IMMEDIATE ADDRESSING
+24E     f       6       1       5       SET DT TO VX
+250     f       6               7       SET VX TO DT
+252     3       6                       SKIP ON EQUALS; IMMEDIATE ADDRESSING	;droppoing tothe lowest spot
+254     1       2       3       c       JUMP
+256     d               1       4       DRAW					;drop it, and the collision flag should be set . we XOR it off the screen
+258     7       1               1       ADD; IMMEDIATE ADDRESSING 		;;ad  to the y counter thing
+25A     1       2       2       a       JUMP
+25C     a       2       c       4       SET INDEX
+25E     f       4       1       e       ADD VX TO I
+260     6       6                       SET; IMMEDIATE ADDRESSING
+262     4       3               1       SKIP ON NOT EQUALS; IMMEDIATE ADDRESSING
+264     6       6               4       SET; IMMEDIATE ADDRESSING
+266     4       3               2       SKIP ON NOT EQUALS; IMMEDIATE ADDRESSING
+268     6       6               8       SET; IMMEDIATE ADDRESSING
+26A     4       3               3       SKIP ON NOT EQUALS; IMMEDIATE ADDRESSING
+26C     6       6               c       SET; IMMEDIATE ADDRESSING
+26E     f       6       1       e       ADD VX TO I
+270                     e       e       RETURN FROM SUBROUTINE
+272     d               1       4       DRAW					;;redraw, 
+274     7               f       f       ADD; IMMEDIATE ADDRESSING		;;add FF, subtract one from 0 ;;so maybe this should do overflow?
+276     2       3       3       4       CALL SUBROUTINE				;334? do we have to restore the carry flags when we return
+278     3       f               1       SKIP ON EQUALS; IMMEDIATE ADDRESSING	;skip based on VF, this is the carry flag. so if we have a 1 in the carry 										;flag, which i imagine is what determines collision.
+27A                     e       e       RETURN FROM SUBROUTINE			; so if we have a 1 in the carry flag then we'll do stuff
+27C     d               1       4       DRAW					;redo the addition.
+27E     7                       1       ADD; IMMEDIATE ADDRESSING
+280     2       3       3       4       CALL SUBROUTINE
+282                     e       e       RETURN FROM SUBROUTINE
+284     d               1       4       DRAW					;;this is for the right button
+286     7                       1       ADD; IMMEDIATE ADDRESSING		;we add one to the position
+288     2       3       3       4       CALL SUBROUTINE
+28A     3       f               1       SKIP ON EQUALS; IMMEDIATE ADDRESSING	
+28C                     e       e       RETURN FROM SUBROUTINE
+28E     d               1       4       DRAW
+290     7               f       f       ADD; IMMEDIATE ADDRESSING
+292     2       3       3       4       CALL SUBROUTINE
+294                     e       e       RETURN FROM SUBROUTINE
+296     d               1       4       DRAW
+298     7       3               1       ADD; IMMEDIATE ADDRESSING
+29A     4       3               4       SKIP ON NOT EQUALS; IMMEDIATE ADDRESSING
+29C     6       3                       SET; IMMEDIATE ADDRESSING
+29E     2       2       5       c       CALL SUBROUTINE
+2A0     2       3       3       4       CALL SUBROUTINE
+2A2     3       f               1       SKIP ON EQUALS; IMMEDIATE ADDRESSING
+2A4                     e       e       RETURN FROM SUBROUTINE
+2A6     d               1       4       DRAW
+2A8     7       3       f       f       ADD; IMMEDIATE ADDRESSING
+2AA     4       3       f       f       SKIP ON NOT EQUALS; IMMEDIATE ADDRESSING
+2AC     6       3               3       SET; IMMEDIATE ADDRESSING
+2AE     2       2       5       c       CALL SUBROUTINE
+2B0     2       3       3       4       CALL SUBROUTINE
+2B2                     e       e       RETURN FROM SUBROUTINE
+2B4     8                               SET; REGISTER ADDRESSING
+2B6     6       7               5       SET; IMMEDIATE ADDRESSING
+2B8     6       8               6       SET; IMMEDIATE ADDRESSING
+2BA     6       9               4       SET; IMMEDIATE ADDRESSING
+2BC     6       1       1       f       SET; IMMEDIATE ADDRESSING
+2BE     6       5       1               SET; IMMEDIATE ADDRESSING
+2C0     6       2               7       SET; IMMEDIATE ADDRESSING
+2C2                     e       e       RETURN FROM SUBROUTINE
+2C4     4               e               SKIP ON NOT EQUALS; IMMEDIATE ADDRESSING
+2C6                                     MACHINE LANGUAGE ROUTINE
+2C8     4               c               SKIP ON NOT EQUALS; IMMEDIATE ADDRESSING
+2CA     4                               SKIP ON NOT EQUALS; IMMEDIATE ADDRESSING
+2CC     2CE     4                               SKIP ON NOT EQUALS; IMMEDIATE ADDRESSING
+2D0     4               6               SKIP ON NOT EQUALS; IMMEDIATE ADDRESSING
+2D2     4                               SKIP ON NOT EQUALS; IMMEDIATE ADDRESSING
+2D4     4               4               SKIP ON NOT EQUALS; IMMEDIATE ADDRESSING
+2D6     6                               SET; IMMEDIATE ADDRESSING
+2D8     2               e               CALL SUBROUTINE
+2DA                                     MACHINE LANGUAGE ROUTINE
+2DC     c               4               RANDOM
+2DE     4                               SKIP ON NOT EQUALS; IMMEDIATE ADDRESSING
+2E0     2E2     8                               SET; REGISTER ADDRESSING
+2E4     4               4               SKIP ON NOT EQUALS; IMMEDIATE ADDRESSING
+2E6     c                               RANDOM
+2E8     2EA     2                               CALL SUBROUTINE
+2EC     6               4               SET; IMMEDIATE ADDRESSING
+2EE     4                               SKIP ON NOT EQUALS; IMMEDIATE ADDRESSING
+2F0     8               e               SET; REGISTER ADDRESSING
+2F2                                     MACHINE LANGUAGE ROUTINE
+2F4     4               c               SKIP ON NOT EQUALS; IMMEDIATE ADDRESSING
+2F6     8                               SET; REGISTER ADDRESSING
+2F8     c               6               RANDOM
+2FA                                     MACHINE LANGUAGE ROUTINE
+2FC     4               c               SKIP ON NOT EQUALS; IMMEDIATE ADDRESSING
+2FE     8                               SET; REGISTER ADDRESSING
+300     c               6               RANDOM
+302                                     MACHINE LANGUAGE ROUTINE
+304     8               c               SET; REGISTER ADDRESSING
+306     4                               SKIP ON NOT EQUALS; IMMEDIATE ADDRESSING
+308                     6               MACHINE LANGUAGE ROUTINE
+30A     c                               RANDOM
+30C     8               c               SET; REGISTER ADDRESSING
+30E     4                               SKIP ON NOT EQUALS; IMMEDIATE ADDRESSING
+310                     6               MACHINE LANGUAGE ROUTINE
+312     c                               RANDOM
+314     c               c               RANDOM
+316                                     MACHINE LANGUAGE ROUTINE
+318     c               c               RANDOM
+31A                                     MACHINE LANGUAGE ROUTINE
+31C     c               c               RANDOM
+31E                                     MACHINE LANGUAGE ROUTINE
+320     c               c               RANDOM
+322                                     MACHINE LANGUAGE ROUTINE
+324     4               4               SKIP ON NOT EQUALS; IMMEDIATE ADDRESSING
+326     4               4               SKIP ON NOT EQUALS; IMMEDIATE ADDRESSING
+328                     f               MACHINE LANGUAGE ROUTINE
+32A                                     MACHINE LANGUAGE ROUTINE
+32C     4               4               SKIP ON NOT EQUALS; IMMEDIATE ADDRESSING
+32E     4               4               SKIP ON NOT EQUALS; IMMEDIATE ADDRESSING
+330                     f               MACHINE LANGUAGE ROUTINE
+332                                     MACHINE LANGUAGE ROUTINE
+334     d               1       4       DRAW					;redraws in its new position, this is used by +/-x
+336     6       6       3       5       SET; IMMEDIATE ADDRESSING		;set v6?
+338     7       6       f       f       ADD; IMMEDIATE ADDRESSING		;subtract 1 from it ;will this affect the carry flag
+33A     3       6                       SKIP ON EQUALS; IMMEDIATE ADDRESSING	;this is so weird and dumb , there could be a jump
+33C     1       3       3       8       JUMP					;its like a timer? maybe so you cant spam moves. and th timer is already 										;takena as a fall thing
+33E                     e       e       RETURN FROM SUBROUTINE
+340     a       2       b       4       SET INDEX				;now we will drop it into place and check if theres a big line what is 2b4?
+342     8       c       1               SET; REGISTER ADDRESSING		;.its the animation??
+344     3       c       1       e       SKIP ON EQUALS; IMMEDIATE ADDRESSING	;what is c? 1e is the bottom of the screen? yessssss so setting c to the y value
+346     7       c               1       ADD; IMMEDIATE ADDRESSING		; so then we'll find the difference between y and c .incremenet until y is c
+348     3       c       1       e       SKIP ON EQUALS; IMMEDIATE ADDRESSING	; checking how many to check
+34A     7       c               1       ADD; IMMEDIATE ADDRESSING
+34C     3       c       1       e       SKIP ON EQUALS; IMMEDIATE ADDRESSING
+34E     7       c               1       ADD; IMMEDIATE ADDRESSING
+350     2       3       5       e       CALL SUBROUTINE				;now checking the values of c things
+352     4       b               a       SKIP ON NOT EQUALS; IMMEDIATE ADDRESSING	;branch if b is 10; so that is the amount of guys in the thing.
+354     2       3       7       2       CALL SUBROUTINE				;this is called if we have a complete line
+356     9       1       c               SKIP ON NOT EQUALS; REGISTER ADDRESSING
+358                     e       e       RETURN FROM SUBROUTINE
+35A     7       1               1       ADD; IMMEDIATE ADDRESSING 
+35C     1       3       5               JUMP
+35E     6               1       b       SET; IMMEDIATE ADDRESSING		;set x to 1b idk what it is. it could be the start of the game on the screen
+360     6       b                       SET; IMMEDIATE ADDRESSING
+362     d               1       1       DRAW					;draw the blip and check for collision
+364     3       f                       SKIP ON EQUALS; IMMEDIATE ADDRESSING	;if no collision we add
+366     7       b               1       ADD; IMMEDIATE ADDRESSING
+368     d               1       1       DRAW					;ok then put it back
+36A     7                       1       ADD; IMMEDIATE ADDRESSING
+36C     3               2       5       SKIP ON EQUALS; IMMEDIATE ADDRESSING	; this is a loop to check the lines, one blip ata  time
+36E     1       3       6       2       JUMP
+370                     e       e       RETURN FROM SUBROUTINE
+372     6               1       b       SET; IMMEDIATE ADDRESSING		;reset the x value
+374     d               1       1       DRAW					;we know they'll be cleared
+376     7                       1       ADD; IMMEDIATE ADDRESSING 
+378     3               2       5       SKIP ON EQUALS; IMMEDIATE ADDRESSING	;clearing the line 
+37A     1       3       7       4       JUMP
+37C     8       e       1               SET; REGISTER ADDRESSING		;drop all the pixels down? that will be yuvk
+37E     8       d       e               SET; REGISTER ADDRESSING
+380     7       e       f       f       ADD; IMMEDIATE ADDRESSING
+382     6               1       b       SET; IMMEDIATE ADDRESSING
+384     6       b                       SET; IMMEDIATE ADDRESSING
+386     d               e       1       DRAW
+388     3       f                       SKIP ON EQUALS; IMMEDIATE ADDRESSING
+38A     1       3       9               JUMP
+38C     d               e       1       DRAW
+38E     1       3       9       4       JUMP
+390     d               d       1       DRAW
+392     7       b               1       ADD; IMMEDIATE ADDRESSING 
+394     7                       1       ADD; IMMEDIATE ADDRESSING
+396     3               2       5       SKIP ON EQUALS; IMMEDIATE ADDRESSING
+398     1       3       8       6       JUMP
+39A     4       b                       SKIP ON NOT EQUALS; IMMEDIATE ADDRESSING
+39C     1       3       a       6       JUMP
+39E     7       d       f       f       ADD; IMMEDIATE ADDRESSING
+3A0     7       e       f       f       ADD; IMMEDIATE ADDRESSING
+3A2     3       d               1       SKIP ON EQUALS; IMMEDIATE ADDRESSING
+3A4     1       3       8       2       JUMP
+3A6     2       3       c               CALL SUBROUTINE
+3A8     3       f               1       SKIP ON EQUALS; IMMEDIATE ADDRESSING
+3AA     2       3       c               CALL SUBROUTINE
+3AC     7       a               1       ADD; IMMEDIATE ADDRESSING
+3AE     2       3       c               CALL SUBROUTINE
+3B0     8               a               SET; REGISTER ADDRESSING
+3B2     6       d               7       SET; IMMEDIATE ADDRESSING
+3B4     8               d       2       AND
+3B6     4                       4       SKIP ON NOT EQUALS; IMMEDIATE ADDRESSING
+3B8     7       5       f       e       ADD; IMMEDIATE ADDRESSING
+3BA     4       5               2       SKIP ON NOT EQUALS; IMMEDIATE ADDRESSING
+3BC     6       5               4       SET; IMMEDIATE ADDRESSING
+3BE                     e       e       RETURN FROM SUBROUTINE
+3C0     a       7                       SET INDEX
+3C2     f       2       5       5       STORE REGISTERS FROM V0 - VX IN I		;write the score! from V[0 - 2]
+3C4     a       8               4       SET INDEX					;okokokokok my text thing is wrong, i need to do the values in those nibbles not the nibbles
+3C6     f       a       3       3       BINARY TO DECIMAL FROM VX INTO I
+3C8     f       2       6       5       LOAD REGISTERS FROM I INTO V0 - VX
+3CA     f               2       9       GET FONT CHARACTER
+3CC     6       d       3       2       SET; IMMEDIATE ADDRESSING
+3CE     6       e                       SET; IMMEDIATE ADDRESSING
+3D0     d       d       e       5       DRAW
+3D2     7       d               5       ADD; IMMEDIATE ADDRESSING
+3D4     f       1       2       9       GET FONT CHARACTER
+3D6     d       d       e       5       DRAW
+3D8     7       d               5       ADD; IMMEDIATE ADDRESSING
+3DA     f       2       2       9       GET FONT CHARACTER
+3DC     d       d       e       5       DRAW
+3DE     a       7                       SET INDEX
+3E0     f       2       6       5       LOAD REGISTERS FROM I INTO V0 - VX
+3E2     a       2       b       4       SET INDEX
+3E4                     e       e       RETURN FROM SUBROUTINE
+3E6     6       a                       SET; IMMEDIATE ADDRESSING
+3E8     6               1       9       SET; IMMEDIATE ADDRESSING
+3EA                     e       e       RETURN FROM SUBROUTINE
+3EC     3       7       2       3       SKIP ON EQUALS; IMMEDIATE ADDRESSING
+3EE     2       3       2       3       CALL SUBROUTINE
+3F0     f       f       f       f       SPRITES
+3F2     f       f       f       f       SPRITES
+3F4     f       f       f       f       SPRITES

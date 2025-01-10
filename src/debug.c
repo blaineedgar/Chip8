@@ -9,6 +9,7 @@
  * @param chip8 structure of memory to duomp
  */
 void memory_Dump(chip8 chip8){
+    //check for unitiialized bytes and then stop
     for(int i=0;i<4096;i++){
         printf("%0X;%0X\t",i,chip8.RAM[i]);
     }
@@ -20,6 +21,8 @@ void memory_Dump(chip8 chip8){
  * 
  */
 void set_keypad(chip8* chip8, configs * configs,SDL_Event* windowEvent){
+    (void)configs;
+
     printf("setting the keypad. press Spacebar to quit");
 
     bool loop=true;
@@ -179,6 +182,8 @@ void decodeDump(chip8 system){
     uint8_t buffer;
     int nibbles[4];
 
+
+
     for(system.PC=0x200;system.PC<4096;system.PC+=2){
 
         buffer = system.RAM[system.PC];
@@ -195,7 +200,15 @@ void decodeDump(chip8 system){
 
         //system.PC+=2;
         //assuming it dosen
+        /*
+        if(nibbles[0]==15&&nibbles[1]==15&&nibbles[2]==15&&nibbles[3]==15){
+            break;
+        }*/
 
+       //breakpoint
+        if(system.PC==0x320){
+            break; 
+        }
 
 
 

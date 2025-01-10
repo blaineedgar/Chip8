@@ -1,0 +1,116 @@
+200     a       2       c       c       SET INDEX
+202     6       a               6       SET; IMMEDIATE ADDRESSING
+204     6       1               3       SET; IMMEDIATE ADDRESSING
+206     6       b               8       SET; IMMEDIATE ADDRESSING
+208     6                               SET; IMMEDIATE ADDRESSING
+20A     d               1       1       DRAW
+20C     7                       8       ADD; IMMEDIATE ADDRESSING
+20E     7       b       f       f       ADD; IMMEDIATE ADDRESSING
+210     3       b                       SKIP ON EQUALS; IMMEDIATE ADDRESSING
+212     1       2               a       JUMP
+214     7       1               2       ADD; IMMEDIATE ADDRESSING
+216     7       a       f       f       ADD; IMMEDIATE ADDRESSING
+218     3       a                       SKIP ON EQUALS; IMMEDIATE ADDRESSING
+21A     1       2               6       JUMP
+21C     6       6                       SET; IMMEDIATE ADDRESSING
+21E     6       7       1       4       SET; IMMEDIATE ADDRESSING
+220     a       2       c       d       SET INDEX
+222     6               2               SET; IMMEDIATE ADDRESSING
+224     6       1       1       e       SET; IMMEDIATE ADDRESSING
+226     d               1       1       DRAW
+228     6       3       1       d       SET; IMMEDIATE ADDRESSING
+22A     6       2       3       f       SET; IMMEDIATE ADDRESSING
+22C     8       2               2       AND
+22E     7       7       f       f       ADD; IMMEDIATE ADDRESSING 
+230     4       7                       SKIP ON NOT EQUALS; IMMEDIATE ADDRESSING
+232     1       2       a       a       JUMP
+234     f       f               a       WAIT FOR KEY IN VX		;start screen
+236     a       2       c       b       SET INDEX			;
+238     d       2       3       1       DRAW				;23 are the xy of the ball; checks collision?
+23A     6       5       f       f       SET; IMMEDIATE ADDRESSING
+23C     c       4               1       RANDOM				;this is the determiner 
+23E     3       4               1       SKIP ON EQUALS; IMMEDIATE ADDRESSING
+240     6       4       f       f       SET; IMMEDIATE ADDRESSING
+242     a       2       c       d       SET INDEX			;set the block, this is the paddle
+244     6       c                       SET; IMMEDIATE ADDRESSING	;defulat is 0
+246     6       e               4       SET; IMMEDIATE ADDRESSING
+248     e       e       a       1       SKIP IF NOT X			;skipping next instruction if they ress e
+24A     6       c       f       e       SET; IMMEDIATE ADDRESSING	;this will subtract it
+24C     6       e               6       SET; IMMEDIATE ADDRESSING
+24E     e       e       a       1       SKIP IF NOT X
+250     6       c               2       SET; IMMEDIATE ADDRESSING
+252     d               1       1       DRAW				;position of paddle is v0v1
+254     8               c       4       ADD; REGISTER ADDRESSING	;calculate the new position
+256     d               1       1       DRAW
+258     4       f               1       SKIP ON NOT EQUALS; IMMEDIATE ADDRESSING	;this detects collision if we did not collide skip, but collision on the paddle. 
+25A     1       2       9       8       JUMP						;so what will this do then?
+25C     4       2                       SKIP ON NOT EQUALS; IMMEDIATE ADDRESSING	if ball is at the left edge then we'll set the direction to the 											other way
+25E     6       4               1       SET; IMMEDIATE ADDRESSING
+260     4       2       3       f       SKIP ON NOT EQUALS; IMMEDIATE ADDRESSING	;this checks the right side
+262     6       4       f       f       SET; IMMEDIATE ADDRESSING			;sets the 4 to FF? what is that
+264     4       3                       SKIP ON NOT EQUALS; IMMEDIATE ADDRESSING
+266     1       2       c       e       JUMP						;fell out of the map, no fell out! this is big.
+268     4       3       1       f       SKIP ON NOT EQUALS; IMMEDIATE ADDRESSING
+26A     1       2       a       4       JUMP
+26C     a       2       c       b       SET INDEX
+26E     d       2       3       1       DRAW
+270     8       2       4       4       ADD; REGISTER ADDRESSING
+272     8       3       5       4       ADD; REGISTER ADDRESSING
+274     d       2       3       1       DRAW
+276     3       f               1       SKIP ON EQUALS; IMMEDIATE ADDRESSING
+278     1       2       4       2       JUMP
+27A     4       3       1       e       SKIP ON NOT EQUALS; IMMEDIATE ADDRESSING
+27C     1       2       9       8       JUMP
+27E     6       a               2       SET; IMMEDIATE ADDRESSING
+280     f       a       1       8       SET ST TO VX
+282     7       6               1       ADD; IMMEDIATE ADDRESSING
+284     a       2       c       a       SET INDEX
+286     1       2       8       8       JUMP
+288     d       2       3       1       DRAW
+28A     c       4               1       RANDOM
+28C     3       4               1       SKIP ON EQUALS; IMMEDIATE ADDRESSING
+28E     6       4       f       f       SET; IMMEDIATE ADDRESSING
+290     c       5               1       RANDOM
+292     3       5               1       SKIP ON EQUALS; IMMEDIATE ADDRESSING
+294     6       5               1       SET; IMMEDIATE ADDRESSING
+296     1       2       4       2       JUMP
+298     6       a               3       SET; IMMEDIATE ADDRESSING		;colliding thing. 
+29A     f       a       1       8       SET ST TO VX				;play sound
+29C     a       2       c       b       SET INDEX				;ball index
+29E     d       2       3       1       DRAW					;redrwa
+2A0     7       3       f       f       ADD; IMMEDIATE ADDRESSING		;previous position
+2A2     1       2       3       6       JUMP
+2A4     a       2       c       b       SET INDEX
+2A6     d       2       3       1       DRAW
+2A8     1       2       2       8       JUMP
+2AA     a       2       c       d       SET INDEX
+2AC     d               1       1       DRAW
+2AE     a       2       f               SET INDEX
+2B0     f       6       3       3       BINARY TO DECIMAL FROM VX INTO I
+2B2     f       2       6       5       LOAD REGISTERS FROM I INTO V0 - VX
+2B4     6       3       1       8       SET; IMMEDIATE ADDRESSING
+2B6     6       4       1       b       SET; IMMEDIATE ADDRESSING
+2B8     f               2       9       GET FONT CHARACTER
+2BA     d       3       4       5       DRAW
+2BC     7       3               5       ADD; IMMEDIATE ADDRESSING
+2BE     f       1       2       9       GET FONT CHARACTER
+2C0     d       3       4       5       DRAW
+2C2     7       3               5       ADD; IMMEDIATE ADDRESSING
+2C4     f       2       2       9       GET FONT CHARACTER
+2C6     d       3       4       5       DRAW
+2C8     1       2       c       8       JUMP
+2CA     f               8               SPRITES
+2CC     f       f       f       f       SPRITES
+2CE     a       2       d       e       SET INDEX			;came here from 266
+2D0     6       3       1       5       SET; IMMEDIATE ADDRESSING	
+2D2     6       2       1               SET; IMMEDIATE ADDRESSING
+2D4     d       3       2       5       DRAW
+2D6     a       2       e       3       SET INDEX
+2D8     6       3       1       d       SET; IMMEDIATE ADDRESSING
+2DA     d       3       2       5       DRAW
+2DC     1       2       a       a       JUMP
+2DE     e       e       8       a       SPRITES
+2E0     c       e       8       c       RANDOM
+2E2     8       a       e       e       SHIFT LEFT
+2E4     8       8       c       c       SPRITES
+2E6     8       8       e       e       SHIFT LEFT

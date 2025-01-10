@@ -83,10 +83,11 @@ void handleInput(chip8* chip8, configs* chip8Configs,SDL_Event* windowEvent){
     //here we will update an array of the keypad, and also take in information like if they want to 
 
     //configs, maybe they can change the defualt layout
-    (void)chip8Configs;
+    //(void)chip8Configs;
 
     while(SDL_PollEvent(windowEvent)){
             if(SDL_QUIT == windowEvent->type){
+                exit(EXIT_SUCCESS);
                 break;
             }
 /*
@@ -153,6 +154,11 @@ void handleInput(chip8* chip8, configs* chip8Configs,SDL_Event* windowEvent){
                         break;
                     case(SDLK_v):
                         chip8->keypad[0xF]=true;
+                        break;
+
+                    //debugging purposes
+                    case(SDLK_SPACE):
+                        chip8Configs->debugMode=true;
                         break;
                     default:
                         //printf("unassigned key pressed \n");
@@ -322,7 +328,7 @@ int main(int argc, char** argv){
 
     //seperate function which returns the fptr
 
-    //decodeDump(system);
+    decodeDump(system);
 
     //fseek
 
@@ -413,7 +419,7 @@ int main(int argc, char** argv){
 
         //break points
         /*
-        if(system.PC==0x23C){
+        if(system.PC==0x23A){
             chip8Configs.debugMode=true;
         }*/
 
@@ -646,7 +652,7 @@ int main(int argc, char** argv){
             for(int j=0;j<16;j++){
                 printf("[%d]: %0X\t",j,system.STACK[j]);
             }
-            printf("\n\nPC: %0X    I: %0X    DT: %0X    ST: %0X    SP: %d\nWould you like to set input? enter 5 to open the keypad.",system.PC,system.I,system.DT,system.ST,system.SP);
+            printf("\n\nPC: %0X    I: %0X    DT: %0X    ST: %0X    SP: %d\nWould you like to set input? enter 5 to open the keypad, or enter 0 to exit debug mode.",system.PC,system.I,system.DT,system.ST,system.SP);
 
             //option to dump memory 
             scanf("%d",&x);//after entering once, it will go once more then it will ask on the second iteration//clear the input buffer????
@@ -654,6 +660,8 @@ int main(int argc, char** argv){
             //the return charactoer is gonna be in the input buffer
             if(x==5){
                 set_keypad(&system, &chip8Configs,&windowEvent);
+            }else if(x==0){
+                chip8Configs.debugMode=false;
             }
         }
 
@@ -703,86 +711,7 @@ int main(int argc, char** argv){
         //try another timing method. 
     }
 
-    if(chip8Configs.debugMode){
-        if(undefinedInstruction){
-            printf("\nENCOUTNERED POTENTIALLY UNKNOWN INSTRUCTION (or sprites)\n");
-        }
-    }
+    return 0;
 
-    while(true){
-        if(SDL_PollEvent(&windowEvent)){
-            if(SDL_QUIT == windowEvent.type){
-                break;
-            
-        
-            }else if(SDL_KEYDOWN == windowEvent.type){
-                //printf("Key is down\n");
-
-                //distinguish among the keys. switch??
-                switch(windowEvent.key.keysym.sym){
-                    case(SDLK_1):
-                        printf("pressing 1 : 1 \n");
-                        break;
-                    case(SDLK_2):
-                        printf("pressing 2 : 2 \n");
-                        break;
-                    case(SDLK_3):
-                        printf("pressing 3 : 3 \n");
-                        break;
-                    case(SDLK_4):
-                        printf("pressing 4 : C \n");
-                        break;
-                    case(SDLK_q):
-                        printf("pressing Q : 4 \n");
-                        break;
-                    case(SDLK_w):
-                        printf("pressing W : 5 \n");
-                        break;
-                    case(SDLK_e):
-                        printf("pressing E : 6 \n");
-                        break;
-                    case(SDLK_r):
-                        printf("pressing R : D \n");
-                        break;
-                    case(SDLK_a):
-                        printf("pressing A : 7 \n");
-                        break;
-                    case(SDLK_s):
-                        printf("pressing S : 8 \n");
-                        break;
-                    case(SDLK_d):
-                        printf("pressing D : 9 \n");
-                        break;
-                    case(SDLK_f):
-                        printf("pressing F : E \n");
-                        break;
-                    case(SDLK_z):
-                        printf("pressing Z : A \n");
-                        break;
-                    case(SDLK_x):
-                        printf("pressing X : 0 \n");
-                        break;
-                    case(SDLK_c):
-                        printf("pressing C : B \n");
-                        break;
-                    case(SDLK_v):
-                        printf("pressing V : F \n");
-                        break;
-                    default:
-                        printf("unassigned key pressed \n");
-                }
-
-            }
-
-            if(SDL_KEYUP == windowEvent.type){
-                printf("Key is up\n");
-            }
-        }
-        //mouse listener??? to open debug and pause
-    }
-
-    SDL_DestroyWindow(window);
-    final_cleanup();
-    exit(EXIT_SUCCESS);
-
+    //make it stay in focus?
 }

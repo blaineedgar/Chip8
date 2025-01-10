@@ -158,7 +158,7 @@ void addDRD(chip8* chip8, int* nibbles){
 void subXY(chip8* chip8, int* nibbles){
     //8XY5
     
-    chip8->V[nibbles[1]]=chip8->V[nibbles[1]]-chip8->V[nibbles[2]];
+
 
     //flag stuuff
     if(chip8->V[nibbles[1]]>=chip8->V[nibbles[2]]){
@@ -166,6 +166,8 @@ void subXY(chip8* chip8, int* nibbles){
     }else{
         chip8->V[15]=0;
     }
+
+    chip8->V[nibbles[1]]=chip8->V[nibbles[1]]-chip8->V[nibbles[2]];
 }
 
 void shiftRight(chip8* chip8, int* nibbles){
@@ -184,7 +186,7 @@ void shiftRight(chip8* chip8, int* nibbles){
 void subYX(chip8* chip8, int* nibbles){
     //8XY7
 
-    chip8->V[nibbles[1]]=chip8->V[nibbles[2]]-chip8->V[nibbles[1]];
+    
 
     //flag 
     if(chip8->V[nibbles[2]]>=chip8->V[nibbles[1]]){
@@ -192,6 +194,9 @@ void subYX(chip8* chip8, int* nibbles){
     }else{
         chip8->V[15]=0;
     }
+
+    chip8->V[nibbles[1]]=chip8->V[nibbles[2]]-chip8->V[nibbles[1]];
+
 }
 
 void shiftLeft(chip8* chip8, int* nibbles){
@@ -206,6 +211,7 @@ void shiftLeft(chip8* chip8, int* nibbles){
     }else{
         chip8->V[15]=0;
     }
+    
     chip8->V[nibbles[1]]=chip8->V[nibbles[1]]*2;
 
 }
@@ -395,7 +401,7 @@ void getFont(chip8* chip8, int* nibbles){
 
     //v[nibbles[1]] will be found in memory. algorithm or switch statemetn??
 
-    chip8->I=(5*nibbles[1])+0x50;//this should work...    
+    chip8->I=(5*chip8->V[nibbles[1]])+0x50;//this should work...    
 }
 
 void decimalVXI(chip8* chip8, int* nibbles){

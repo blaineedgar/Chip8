@@ -4,22 +4,19 @@ INCLUDES:=include #./include
 
 # Target rule for compiling and linking the program
 all: menu opcodes display debug
-	gcc -g $(CFLAGS) -I$(INCLUDES) -L$(LIBS) -O0 -o  chip8 src/chip8.c menu.o opcodes.o display.o debug.o -lmingw32 -lSDL2main -lSDL2 
+	gcc -g $(CFLAGS) -I$(INCLUDES) -L$(LIBS) -O2 -o bin/chip8 src/chip8.c build/menu.o build/opcodes.o build/display.o build/debug.o -lmingw32 -lSDL2main -lSDL2
 
 menu:
-	gcc -g $(CFLAGS) -I$(INCLUDES) -L$(LIBS) -O0 -c src/menu.c
+	gcc -g $(CFLAGS) -I$(INCLUDES) -L$(LIBS) -O2 -o build/menu.o -c src/menu.c
 
 opcodes:
-	gcc -g $(CFLAGS) -I$(INCLUDES) -L$(LIBS) -O0 -c src/opcodes.c
+	gcc -g $(CFLAGS) -I$(INCLUDES) -L$(LIBS) -O2 -o build/opcodes.o -c src/opcodes.c
 
 display:
-	gcc -g $(CFLAGS) -I$(INCLUDES) -L$(LIBS) -O0 -c src/display.c
+	gcc -g $(CFLAGS) -I$(INCLUDES) -L$(LIBS) -O2 -o build/display.o -c src/display.c
 
 debug:
-	gcc -g $(CFLAGS) -I$(INCLUDES) -L$(LIBS) -O0 -c src/debug.c
-#SDL2:
-#	gcc -o SDL lib/SDL2/SDL.h
+	gcc -g $(CFLAGS) -I$(INCLUDES) -L$(LIBS) -O2 -o build/debug.o -c src/debug.c
 
-# Clean rule (optional but recommended)
 clean:
 	rm -f chip8
