@@ -1,0 +1,642 @@
+200     1       2       2       5       JUMP
+202     5       3       5               SKIP ON EQUALS; REGISTER ADDRESSING
+204     4       1       4       3       SKIP ON NOT EQUALS; IMMEDIATE ADDRESSING
+206     4       5       2               SKIP ON NOT EQUALS; IMMEDIATE ADDRESSING
+208     4       9       4       e       SKIP ON NOT EQUALS; IMMEDIATE ADDRESSING
+20A     5       6       4       1       SKIP ON EQUALS; REGISTER ADDRESSING
+20C     4       4       4       5       SKIP ON NOT EQUALS; IMMEDIATE ADDRESSING
+20E     5       2       5       3       SKIP ON EQUALS; REGISTER ADDRESSING
+210     2               3               CALL SUBROUTINE
+212     2       e       3       9       CALL SUBROUTINE
+214     3       1       2               SKIP ON EQUALS; IMMEDIATE ADDRESSING
+216     4       2       7       9       SKIP ON NOT EQUALS; IMMEDIATE ADDRESSING
+218     2               4       4       CALL SUBROUTINE
+21A     6       1       7       6       SET; IMMEDIATE ADDRESSING
+21C     6       9       6       4       SET; IMMEDIATE ADDRESSING
+21E     2               5       7       CALL SUBROUTINE
+220     4       9       4       e       SKIP ON NOT EQUALS; IMMEDIATE ADDRESSING
+222     5       4       4       5       SKIP ON EQUALS; REGISTER ADDRESSING
+224     5       2       6               SKIP ON EQUALS; REGISTER ADDRESSING
+226                     6       1       MACHINE LANGUAGE ROUTINE
+228                     6       2       MACHINE LANGUAGE ROUTINE
+22A             8       a       3       MACHINE LANGUAGE ROUTINE
+22C     d       d       d               DRAW
+22E     1       8       7       1       JUMP
+230             8       f       2       MACHINE LANGUAGE ROUTINE
+232     1       e       3       1       JUMP
+234     2               1       2       CALL SUBROUTINE
+236     2       d       7               CALL SUBROUTINE
+238             8       6       1       MACHINE LANGUAGE ROUTINE
+23A                     3               MACHINE LANGUAGE ROUTINE
+23C     4               1       2       SKIP ON NOT EQUALS; IMMEDIATE ADDRESSING
+23E     2       d       6       9       CALL SUBROUTINE
+240             5       6       c       MACHINE LANGUAGE ROUTINE
+242     1       5       6       e       JUMP
+244                     2       3       MACHINE LANGUAGE ROUTINE
+246     9       1       6               SKIP ON NOT EQUALS; REGISTER ADDRESSING
+248             a       f               MACHINE LANGUAGE ROUTINE
+24A     1       5       f               JUMP
+24C             7       3               MACHINE LANGUAGE ROUTINE
+24E                     1       2       MACHINE LANGUAGE ROUTINE
+250     4       b       2       3       SKIP ON NOT EQUALS; IMMEDIATE ADDRESSING
+252     9       1       7       e       SKIP ON NOT EQUALS; REGISTER ADDRESSING
+254             1       1       2       MACHINE LANGUAGE ROUTINE
+256     4       5       6       6       SKIP ON NOT EQUALS; IMMEDIATE ADDRESSING
+258                     6       8       MACHINE LANGUAGE ROUTINE
+25A     1       c       6       9       JUMP
+25C                     6       a       MACHINE LANGUAGE ROUTINE
+25E             4       6       b       MACHINE LANGUAGE ROUTINE
+260             a       6       c       MACHINE LANGUAGE ROUTINE
+262             4       6       d       MACHINE LANGUAGE ROUTINE
+264     3       c       6       e       SKIP ON EQUALS; IMMEDIATE ADDRESSING
+266             f                       MACHINE LANGUAGE ROUTINE
+268     e               2       3       SPRITES
+26A     7       5       2       3       ADD; IMMEDIATE ADDRESSING
+26C     5       1       f       d       SKIP ON EQUALS; REGISTER ADDRESSING
+26E     1       5       6               JUMP
+270             4       e               MACHINE LANGUAGE ROUTINE
+272     9       e       1       2       SKIP ON NOT EQUALS; REGISTER ADDRESSING
+274     7       d       2       3       ADD; IMMEDIATE ADDRESSING
+276     7       5       3       8       ADD; IMMEDIATE ADDRESSING
+278                     7       8       MACHINE LANGUAGE ROUTINE
+27A     f       f       2       3       SPRITES
+27C     7       5       6               ADD; IMMEDIATE ADDRESSING
+27E             6       e               MACHINE LANGUAGE ROUTINE
+280     9       e       1       2       SKIP ON NOT EQUALS; REGISTER ADDRESSING
+282     8       b       2       3       XOR
+284     7       5       3       8       ADD; IMMEDIATE ADDRESSING
+286     3       9       7       8       SKIP ON EQUALS; IMMEDIATE ADDRESSING
+288             1       2       3       MACHINE LANGUAGE ROUTINE
+28A     7       5       3       6       ADD; IMMEDIATE ADDRESSING
+28C                     1       2       MACHINE LANGUAGE ROUTINE
+28E     9       f       6               SKIP ON NOT EQUALS; REGISTER ADDRESSING
+290             5       e               MACHINE LANGUAGE ROUTINE
+292     9       e       1       2       SKIP ON NOT EQUALS; REGISTER ADDRESSING
+294     e       9       6       6       SPRITES
+296             1       6       5       MACHINE LANGUAGE ROUTINE
+298     1       b       8       4       JUMP
+29A     8               a       3       XOR
+29C     d       9       d       4       DRAW
+29E     5       1       a       3       SKIP ON EQUALS; REGISTER ADDRESSING
+2A0     d       9       d       4       DRAW
+2A2     5       1       7       5       SKIP ON EQUALS; REGISTER ADDRESSING
+2A4     f       f       3       5       SPRITES
+2A6     f       f       1       2       SPRITES
+2A8     a       d       6       6       SET INDEX
+2AA                     1       2       MACHINE LANGUAGE ROUTINE
+2AC     e       9       d       4       SPRITES
+2AE     5       1       3       f       SKIP ON EQUALS; REGISTER ADDRESSING
+2B0             1       1       2       MACHINE LANGUAGE ROUTINE
+2B2     e       9       d       4       SPRITES
+2B4     5       1       6       6       SKIP ON EQUALS; REGISTER ADDRESSING
+2B6                     8       3       MACHINE LANGUAGE ROUTINE
+2B8     4               7       3       SKIP ON NOT EQUALS; IMMEDIATE ADDRESSING
+2BA             3       8       3       MACHINE LANGUAGE ROUTINE
+2BC     b       5       6       2       JJUMP WITH OFFSET
+2BE     f       8       8       3       SPRITES
+2C0     2       2       6       2       CALL SUBROUTINE
+2C2             8       3       3       MACHINE LANGUAGE ROUTINE
+2C4                     1       2       MACHINE LANGUAGE ROUTINE
+2C6     c       9       2       3       RANDOM
+2C8     7       d       8       2       ADD; IMMEDIATE ADDRESSING
+2CA             6       4       3       MACHINE LANGUAGE ROUTINE
+2CC             8       1       2       MACHINE LANGUAGE ROUTINE
+2CE     d       3       3       3       DRAW
+2D0     1               1       2       JUMP
+2D2     d       5       2       3       DRAW
+2D4     7       d       8       2       ADD; IMMEDIATE ADDRESSING
+2D6             6       3       3       MACHINE LANGUAGE ROUTINE
+2D8     1       8       1       2       JUMP
+2DA     d       d       2       3       DRAW
+2DC     7       d       8       2       ADD; IMMEDIATE ADDRESSING
+2DE             6       4       3       MACHINE LANGUAGE ROUTINE
+2E0     2               1       2       CALL SUBROUTINE
+2E2     e       7       3       3       SPRITES
+2E4     2       8       1       2       CALL SUBROUTINE
+2E6     e       9       2       3       SPRITES
+2E8     7       d       3       e       ADD; IMMEDIATE ADDRESSING
+2EA                     1       3       MACHINE LANGUAGE ROUTINE
+2EC             7       7       9       MACHINE LANGUAGE ROUTINE
+2EE             6       4       9       MACHINE LANGUAGE ROUTINE
+2F0     1       8       6       9       JUMP
+2F2                     6       a       MACHINE LANGUAGE ROUTINE
+2F4             4       6       b       MACHINE LANGUAGE ROUTINE
+2F6             a       6       c       MACHINE LANGUAGE ROUTINE
+2F8             4       7       d       MACHINE LANGUAGE ROUTINE
+2FA     f       4       6       e       SPRITES
+2FC             f                       MACHINE LANGUAGE ROUTINE
+2FE     e               2       3       SPRITES
+300     5       1       2       3       SKIP ON EQUALS; REGISTER ADDRESSING
+302     7       5       f       d       ADD; IMMEDIATE ADDRESSING
+304     1       5       1       2       JUMP
+306     6       f       f       7       SET; IMMEDIATE ADDRESSING
+308             7       3       7       MACHINE LANGUAGE ROUTINE
+30A                     1       2       MACHINE LANGUAGE ROUTINE
+30C     6       f       f       d       SET; IMMEDIATE ADDRESSING
+30E     1       5       2       3       JUMP
+310     5       1       8       b       SKIP ON EQUALS; REGISTER ADDRESSING
+312     a       4       3       b       SET INDEX
+314     1       2       1       3       JUMP
+316     1       b       7       c       JUMP
+318             2       6       a       MACHINE LANGUAGE ROUTINE
+31A     f       c       3       b       SPRITES
+31C             2       1       3       MACHINE LANGUAGE ROUTINE
+31E     2       3       7       c       CALL SUBROUTINE
+320             2       6       a       MACHINE LANGUAGE ROUTINE
+322             4       2       3       MACHINE LANGUAGE ROUTINE
+324     5       1       3       c       SKIP ON EQUALS; REGISTER ADDRESSING
+326     1       8       1       2       JUMP
+328     6       f                       SET; IMMEDIATE ADDRESSING
+32A     e               a       4       SPRITES
+32C     d       d       6               DRAW
+32E     1       4       6       1       JUMP
+330             8       6       2       MACHINE LANGUAGE ROUTINE
+332             f       d               MACHINE LANGUAGE ROUTINE
+334     1       f       7               JUMP
+336             8       f       2       MACHINE LANGUAGE ROUTINE
+338     1       e       3               JUMP
+33A     2       c       1       3       CALL SUBROUTINE
+33C     3       3       6               SKIP ON EQUALS; IMMEDIATE ADDRESSING
+33E     f       f       f               SPRITES
+340     1       5       f               JUMP
+342             7       3               MACHINE LANGUAGE ROUTINE
+344                     1       3       MACHINE LANGUAGE ROUTINE
+346     4       1       f               SKIP ON NOT EQUALS; IMMEDIATE ADDRESSING
+348             a                       MACHINE LANGUAGE ROUTINE
+34A     e               a       7       SPRITES
+34C             6       f       e       MACHINE LANGUAGE ROUTINE
+34E     6       5       1       2       SET; IMMEDIATE ADDRESSING
+350     2       5       a       3       CALL SUBROUTINE
+352     c       1       f       9       RANDOM
+354     1       e       6       1       JUMP
+356             8       2       3       MACHINE LANGUAGE ROUTINE
+358     6       9       8       1       SET; IMMEDIATE ADDRESSING
+35A             6       2       3       MACHINE LANGUAGE ROUTINE
+35C     6       9       8       1       SET; IMMEDIATE ADDRESSING
+35E             6       2       3       MACHINE LANGUAGE ROUTINE
+360     6       9       8       1       SET; IMMEDIATE ADDRESSING
+362             6       2       3       MACHINE LANGUAGE ROUTINE
+364     6       9       7       b       SET; IMMEDIATE ADDRESSING
+366     d                               DRAW
+368     e       e       8               SPRITES
+36A     e               8               SPRITES
+36C     1       2       3               JUMP
+36E                     d       b       MACHINE LANGUAGE ROUTINE
+370     c       6       7       b       RANDOM
+372             c                       MACHINE LANGUAGE ROUTINE
+374     e       e       a       3       SPRITES
+376     d       9       6               DRAW
+378     1       c       d       8       JUMP
+37A             4                       MACHINE LANGUAGE ROUTINE
+37C     e       e       2       3       SPRITES
+37E     5       1       8       e       SKIP ON EQUALS; REGISTER ADDRESSING
+380     2       3       2       3       CALL SUBROUTINE
+382     5       1       6               SKIP ON EQUALS; REGISTER ADDRESSING
+384             5       f               MACHINE LANGUAGE ROUTINE
+386     1       8       f               JUMP
+388     1       5       f               JUMP
+38A             7       3               MACHINE LANGUAGE ROUTINE
+38C                     1       3       MACHINE LANGUAGE ROUTINE
+38E     8       9                       SET; REGISTER ADDRESSING
+390     e       e       6       a       SPRITES
+392                     8       d       MACHINE LANGUAGE ROUTINE
+394     e               6       b       SPRITES
+396             4       e       9       MACHINE LANGUAGE ROUTINE
+398     a       1       1       2       SET INDEX
+39A     5       7       a       6       SKIP ON EQUALS; REGISTER ADDRESSING
+39C             c       f       d       MACHINE LANGUAGE ROUTINE
+39E     1       e       f               JUMP
+3A0     6       5       3               SET; IMMEDIATE ADDRESSING
+3A2     f       f       1       3       SPRITES
+3A4     a       f       6       a       SET INDEX
+3A6                     6       b       MACHINE LANGUAGE ROUTINE
+3A8             4       6       d       MACHINE LANGUAGE ROUTINE
+3AA             1       6       e       MACHINE LANGUAGE ROUTINE
+3AC             1       1       3       MACHINE LANGUAGE ROUTINE
+3AE     9       7       a       5       SKIP ON NOT EQUALS; REGISTER ADDRESSING
+3B0             a       f               MACHINE LANGUAGE ROUTINE
+3B2     1       e       d       b       JUMP
+3B4     c       6       7       b       RANDOM
+3B6             8       7       d       MACHINE LANGUAGE ROUTINE
+3B8             1       7       a       MACHINE LANGUAGE ROUTINE
+3BA             1       3       a       MACHINE LANGUAGE ROUTINE
+3BC             7       1       3       MACHINE LANGUAGE ROUTINE
+3BE     9       7                       SKIP ON NOT EQUALS; REGISTER ADDRESSING
+3C0     e       e       3       c       SPRITES
+3C2     7       e       f       f       ADD; IMMEDIATE ADDRESSING
+3C4     f       f       9       9       SPRITES
+3C6     9       9       7       e       SKIP ON NOT EQUALS; REGISTER ADDRESSING
+3C8     f       f       f       f       SPRITES
+3CA     2       4       2       4       CALL SUBROUTINE
+3CC     e       7       7       e       SPRITES
+3CE     f       f       3       c       SPRITES
+3D0     3       c       7       e       SKIP ON EQUALS; IMMEDIATE ADDRESSING
+3D2     d       b       8       1       DRAW
+3D4     4       2       3       c       SKIP ON NOT EQUALS; IMMEDIATE ADDRESSING
+3D6     7       e       f       f       ADD; IMMEDIATE ADDRESSING
+3D8     d       b       1               DRAW
+3DA     3       8       7       c       SKIP ON EQUALS; IMMEDIATE ADDRESSING
+3DC     f       e                       SPRITES
+3DE                     7       f       MACHINE LANGUAGE ROUTINE
+3E0                     3       f       MACHINE LANGUAGE ROUTINE
+3E2                     7       f       MACHINE LANGUAGE ROUTINE
+3E4                                     MACHINE LANGUAGE ROUTINE
+3E6                             1       MACHINE LANGUAGE ROUTINE
+3E8             1               1       MACHINE LANGUAGE ROUTINE
+3EA             3               3       MACHINE LANGUAGE ROUTINE
+3EC             3               3       MACHINE LANGUAGE ROUTINE
+3EE                                     MACHINE LANGUAGE ROUTINE
+3F0     3       f       2               SKIP ON EQUALS; IMMEDIATE ADDRESSING
+3F2     2               2               CALL SUBROUTINE
+3F4     2               2               CALL SUBROUTINE
+3F6     2               2               CALL SUBROUTINE
+3F8     2               3       f       CALL SUBROUTINE
+3FA             8               8       MACHINE LANGUAGE ROUTINE
+3FC     f       f                       SPRITES
+3FE                     f       e       MACHINE LANGUAGE ROUTINE
+400                     f       c       MACHINE LANGUAGE ROUTINE
+402                     f       e       MACHINE LANGUAGE ROUTINE
+404                                     MACHINE LANGUAGE ROUTINE
+406                     7       e       MACHINE LANGUAGE ROUTINE
+408     4       2       4       2       SKIP ON NOT EQUALS; IMMEDIATE ADDRESSING
+40A     6       2       6       2       SET; IMMEDIATE ADDRESSING
+40C     6       2       6       2       SET; IMMEDIATE ADDRESSING
+40E                                     MACHINE LANGUAGE ROUTINE
+410     f       f                       SPRITES
+412                                     MACHINE LANGUAGE ROUTINE
+414                                     MACHINE LANGUAGE ROUTINE
+416                                     MACHINE LANGUAGE ROUTINE
+418                     f       f       MACHINE LANGUAGE ROUTINE
+41A                                     MACHINE LANGUAGE ROUTINE
+41C     f       f                       SPRITES
+41E     7       d                       ADD; IMMEDIATE ADDRESSING
+420     4       1       7       d       SKIP ON NOT EQUALS; IMMEDIATE ADDRESSING
+422             5       7       d       MACHINE LANGUAGE ROUTINE
+424     7       d                       ADD; IMMEDIATE ADDRESSING
+426                     c       2       MACHINE LANGUAGE ROUTINE
+428     c       2       c       6       RANDOM
+42A     4       4       6       c       SKIP ON NOT EQUALS; IMMEDIATE ADDRESSING
+42C     2       8       3       8       CALL SUBROUTINE
+42E                                     MACHINE LANGUAGE ROUTINE
+430     f       f                       SPRITES
+432                                     MACHINE LANGUAGE ROUTINE
+434                                     MACHINE LANGUAGE ROUTINE
+436                                     MACHINE LANGUAGE ROUTINE
+438                     f       f       MACHINE LANGUAGE ROUTINE
+43A                                     MACHINE LANGUAGE ROUTINE
+43C     f       f                       SPRITES
+43E     f       7       1               SPRITES
+440     1       4       f       7       JUMP
+442     f       7               4       SPRITES
+444             4                       MACHINE LANGUAGE ROUTINE
+446                     7       c       MACHINE LANGUAGE ROUTINE
+448     4       4       f       e       SKIP ON NOT EQUALS; IMMEDIATE ADDRESSING
+44A     c       2       c       2       RANDOM
+44C     c       2       c       2       RANDOM
+44E                                     MACHINE LANGUAGE ROUTINE
+450     f       f                       SPRITES
+452                                     MACHINE LANGUAGE ROUTINE
+454                                     MACHINE LANGUAGE ROUTINE
+456                                     MACHINE LANGUAGE ROUTINE
+458                     f       f       MACHINE LANGUAGE ROUTINE
+45A                                     MACHINE LANGUAGE ROUTINE
+45C     f       f                       SPRITES
+45E     e       f       2               SPRITES
+460     2       8       e       8       CALL SUBROUTINE
+462     e       8       2       f       SPRITES
+464     2       f                       CALL SUBROUTINE
+466                     f       9       MACHINE LANGUAGE ROUTINE
+468     8       5       c       5       SUBTRACT; VX - VY
+46A     c       5       c       5       RANDOM
+46C     c       5       f       9       RANDOM
+46E                                     MACHINE LANGUAGE ROUTINE
+470     f       f                       SPRITES
+472                                     MACHINE LANGUAGE ROUTINE
+474                                     MACHINE LANGUAGE ROUTINE
+476                                     MACHINE LANGUAGE ROUTINE
+478                     f       f       MACHINE LANGUAGE ROUTINE
+47A                                     MACHINE LANGUAGE ROUTINE
+47C     f       f                       SPRITES
+47E     b       e                       JJUMP WITH OFFSET
+480     2               3               CALL SUBROUTINE
+482     2               b       e       CALL SUBROUTINE
+484     b       e                       JJUMP WITH OFFSET
+486                     f       7       MACHINE LANGUAGE ROUTINE
+488             4       e       7       MACHINE LANGUAGE ROUTINE
+48A     8       5       8       5       SUBTRACT; VX - VY
+48C     8       4       f       4       ADD; REGISTER ADDRESSING
+48E                                     MACHINE LANGUAGE ROUTINE
+490     f       f                       SPRITES
+492                                     MACHINE LANGUAGE ROUTINE
+494                                     MACHINE LANGUAGE ROUTINE
+496                                     MACHINE LANGUAGE ROUTINE
+498                     f       f       MACHINE LANGUAGE ROUTINE
+49A                                     MACHINE LANGUAGE ROUTINE
+49C     f       f                       SPRITES
+49E                     7       f       MACHINE LANGUAGE ROUTINE
+4A0                     3       f       MACHINE LANGUAGE ROUTINE
+4A2                     7       f       MACHINE LANGUAGE ROUTINE
+4A4                                     MACHINE LANGUAGE ROUTINE
+4A6                     e       f       MACHINE LANGUAGE ROUTINE
+4A8     2       8       e       f       CALL SUBROUTINE
+4AA     4AC     6               6       f       SET; IMMEDIATE ADDRESSING
+4AE                                     MACHINE LANGUAGE ROUTINE
+4B0     f       f                       SPRITES
+4B2                                     MACHINE LANGUAGE ROUTINE
+4B4                                     MACHINE LANGUAGE ROUTINE
+4B6                                     MACHINE LANGUAGE ROUTINE
+4B8                     f       f       MACHINE LANGUAGE ROUTINE
+4BA                                     MACHINE LANGUAGE ROUTINE
+4BC     f       f                       SPRITES
+4BE                     f       e       MACHINE LANGUAGE ROUTINE
+4C0                     f       c       MACHINE LANGUAGE ROUTINE
+4C2                     f       e       MACHINE LANGUAGE ROUTINE
+4C4                                     MACHINE LANGUAGE ROUTINE
+4C6                     c               MACHINE LANGUAGE ROUTINE
+4C8                     c               MACHINE LANGUAGE ROUTINE
+4CA     c               c               RANDOM
+4CC     c               c               RANDOM
+4CE                                     MACHINE LANGUAGE ROUTINE
+4D0     f       c               4       SPRITES
+4D2             4               4       MACHINE LANGUAGE ROUTINE
+4D4             4               4       MACHINE LANGUAGE ROUTINE
+4D6             4               4       MACHINE LANGUAGE ROUTINE
+4D8             4       f       c       MACHINE LANGUAGE ROUTINE
+4DA     1               1               JUMP
+4DC     f       f       f       9       SPRITES
+4DE     8       1       b       9       SPRITES
+4E0     8       b       9       a       SPRITES
+4E2     9       a       f       a       SKIP ON NOT EQUALS; REGISTER ADDRESSING
+4E4                     f       a       MACHINE LANGUAGE ROUTINE
+4E6     8       a       9       a       SPRITES
+4E8     9       a       9       b       SKIP ON NOT EQUALS; REGISTER ADDRESSING
+4EA     9       9       f       8       SKIP ON NOT EQUALS; REGISTER ADDRESSING
+4EC     e       6       2       5       SPRITES
+4EE     2       5       f       4       CALL SUBROUTINE
+4F0     3       4       3       4       SKIP ON EQUALS; IMMEDIATE ADDRESSING
+4F2     3       4                       SKIP ON EQUALS; IMMEDIATE ADDRESSING
+4F4     1       7       1       4       JUMP
+4F6     3       4       3       7       SKIP ON EQUALS; IMMEDIATE ADDRESSING
+4F8     3       6       2       6       SKIP ON EQUALS; IMMEDIATE ADDRESSING
+4FA     c       7       d       f       RANDOM
+4FC     5               5               SKIP ON EQUALS; REGISTER ADDRESSING
+4FE     5       c       d       8       SKIP ON EQUALS; REGISTER ADDRESSING
+500     d       8       d       f       DRAW
+502                     d       f       MACHINE LANGUAGE ROUTINE
+504     1       1       1       f       JUMP
+506     1       2       1       b       JUMP
+508     1       9       d       9       JUMP
+50A     7       c       4       4       ADD; IMMEDIATE ADDRESSING
+50C     f       e       8       6       SPRITES
+50E     8       6       8       6       SHIFT RIGHT
+510     f       c       8       4       SPRITES
+512     f       e       8       2       SPRITES
+514     8       2       f       e       SHIFT LEFT
+516     f       e       8               SPRITES
+518     c               c               RANDOM
+51A     c               f       e       RANDOM
+51C     f       c       8       2       SPRITES
+51E     c       2       c       2       RANDOM
+520     c       2       f       c       RANDOM
+522     f       e       8               SPRITES
+524     f       8       c               SPRITES
+526     c               f       e       RANDOM
+528     f       e       8               SPRITES
+52A     f               c               SPRITES
+52C     c               c               RANDOM
+52E     f       e       8               SPRITES
+530     b       e       8       6       JJUMP WITH OFFSET
+532     8       6       f       e       SHIFT LEFT
+534     8       6       8       6       SHIFT RIGHT
+536     f       e       8       6       SPRITES
+538     8       6       8       6       SHIFT RIGHT
+53A     1               1               JUMP
+53C     1               1               JUMP
+53E     1               1               JUMP
+540     1       8       1       8       JUMP
+542     1       8       4       8       JUMP
+544     4       8       7       8       SKIP ON NOT EQUALS; IMMEDIATE ADDRESSING
+546     9       c       9               SKIP ON NOT EQUALS; REGISTER ADDRESSING
+548     b               c               JJUMP WITH OFFSET
+54A     b               9       c       JJUMP WITH OFFSET
+54C     8               8               SET; REGISTER ADDRESSING
+54E     c               c               RANDOM
+550     c               f       e       RANDOM
+552     e       e       9       2       SPRITES
+554     9       2       8       6       SKIP ON NOT EQUALS; REGISTER ADDRESSING
+556     8       6       8       6       SHIFT RIGHT
+558     f       e       8       2       SPRITES
+55A     8       6       8       6       SHIFT RIGHT
+55C     8       6       8       6       SHIFT RIGHT
+55E     7       c       8       2       ADD; IMMEDIATE ADDRESSING
+560     8       6       8       6       SHIFT RIGHT
+562     8       6       7       c       SPRITES
+564     f       e       8       2       SPRITES
+566     f       e       c               SPRITES
+568     c               c               RANDOM
+56A     7       c       8       2       ADD; IMMEDIATE ADDRESSING
+56C     c       2       c       a       RANDOM
+56E     c       4       7       a       RANDOM
+570     f       e       8       6       SPRITES
+572     f       e       9               SPRITES
+574     9       c       8       4       SKIP ON NOT EQUALS; REGISTER ADDRESSING
+576     f       e       c               SPRITES
+578     f       e               2       SPRITES
+57A             2       f       e       MACHINE LANGUAGE ROUTINE
+57C     f       e       1               SPRITES
+57E     3               3               SKIP ON EQUALS; IMMEDIATE ADDRESSING
+580     3               3               SKIP ON EQUALS; IMMEDIATE ADDRESSING
+582     8       2       8       2       AND
+584     c       2       c       2       RANDOM
+586     c       2       f       e       RANDOM
+588     8       2       8       2       AND
+58A     8       2       e       e       SHIFT LEFT
+58C     3       8       1               SKIP ON EQUALS; IMMEDIATE ADDRESSING
+58E     8       6       8       6       SHIFT RIGHT
+590     9       6       9       2       SKIP ON NOT EQUALS; REGISTER ADDRESSING
+592     9       2       e       e       SKIP ON NOT EQUALS; REGISTER ADDRESSING
+594     8       2       4       4       ADD; REGISTER ADDRESSING
+596     3       8       3       8       SKIP ON EQUALS; IMMEDIATE ADDRESSING
+598     4       4       8       2       SKIP ON NOT EQUALS; IMMEDIATE ADDRESSING
+59A     8       2       8       2       AND
+59C     f       e       3               SPRITES
+59E     3               3               SKIP ON EQUALS; IMMEDIATE ADDRESSING
+5A0     f       e               2       SPRITES
+5A2     1       e       f               JUMP
+5A4     8               f       e       SHIFT LEFT
+5A6                                     MACHINE LANGUAGE ROUTINE
+5A8                                     MACHINE LANGUAGE ROUTINE
+5AA             6               6       MACHINE LANGUAGE ROUTINE
+5AC                                     MACHINE LANGUAGE ROUTINE
+5AE                     6               MACHINE LANGUAGE ROUTINE
+5B0     6               c               SET; IMMEDIATE ADDRESSING
+5B2                                     MACHINE LANGUAGE ROUTINE
+5B4                                     MACHINE LANGUAGE ROUTINE
+5B6                                     MACHINE LANGUAGE ROUTINE
+5B8     1       8       1       8       JUMP
+5BA     1       8       1       8       JUMP
+5BC                     1       8       MACHINE LANGUAGE ROUTINE
+5BE     7       c       c       6       ADD; IMMEDIATE ADDRESSING
+5C0             c       1       8       MACHINE LANGUAGE ROUTINE
+5C2                     1       8       MACHINE LANGUAGE ROUTINE
+5C4                                     MACHINE LANGUAGE ROUTINE
+5C6     f       e       f       e       SPRITES
+5C8                                     MACHINE LANGUAGE ROUTINE
+5CA     f       e       8       2       SPRITES
+5CC     8       6       8       6       SHIFT RIGHT
+5CE     8       6       f       e       SHIFT LEFT
+5D0             8               8       MACHINE LANGUAGE ROUTINE
+5D2             8       1       8       MACHINE LANGUAGE ROUTINE
+5D4     1       8       1       8       JUMP
+5D6     f       e               2       SPRITES
+5D8     f       e       c               SPRITES
+5DA     c               f       e       RANDOM
+5DC     f       e               2       SPRITES
+5DE     1       e               6       JUMP
+5E0             6       f       e       MACHINE LANGUAGE ROUTINE
+5E2     8       4       c       4       ADD; REGISTER ADDRESSING
+5E4     c       4       f       e       RANDOM
+5E6             4               4       MACHINE LANGUAGE ROUTINE
+5E8     f       e       8               SPRITES
+5EA     f       e               6       SPRITES
+5EC             6       f       e       MACHINE LANGUAGE ROUTINE
+5EE     c               c               RANDOM
+5F0     c               f       e       RANDOM
+5F2     8       2       f       e       SHIFT LEFT
+5F4     f       e               2       SPRITES
+5F6             2               6       MACHINE LANGUAGE ROUTINE
+5F8             6               6       MACHINE LANGUAGE ROUTINE
+5FA     7       c       4       4       ADD; IMMEDIATE ADDRESSING
+5FC     f       e       8       6       SPRITES
+5FE     8       6       f       e       SHIFT LEFT
+600     f       e       8       2       SPRITES
+602     f       e               6       SPRITES
+604             6               6       MACHINE LANGUAGE ROUTINE
+606     4       4       f       e       SKIP ON NOT EQUALS; IMMEDIATE ADDRESSING
+608     4       4       4       4       SKIP ON NOT EQUALS; IMMEDIATE ADDRESSING
+60A     f       e       4       4       SPRITES
+60C     a       8       a       8       SET INDEX
+60E     a       8       a       8       SET INDEX
+610     a       8       a       8       SET INDEX
+612     a       8       6       c       SET INDEX
+614     5       a                       SKIP ON EQUALS; REGISTER ADDRESSING
+616             c       1       8       MACHINE LANGUAGE ROUTINE
+618     a       8       3               SET INDEX
+61A     4       e       7       e       SKIP ON NOT EQUALS; IMMEDIATE ADDRESSING
+61C                     1       2       MACHINE LANGUAGE ROUTINE
+61E     1       8       6       6       JUMP
+620     6       c       a       8       SET; IMMEDIATE ADDRESSING
+622     5       a       6       6       SKIP ON EQUALS; REGISTER ADDRESSING
+624     5       4       2       4       SKIP ON EQUALS; REGISTER ADDRESSING
+626     6       6                       SET; IMMEDIATE ADDRESSING
+628     4       8       4       8       SKIP ON NOT EQUALS; IMMEDIATE ADDRESSING
+62A     1       8       1       2       JUMP
+62C     a       8               6       SET INDEX
+62E     9               a       8       SKIP ON NOT EQUALS; REGISTER ADDRESSING
+630     1       2                       JUMP
+632     7       e       3               ADD; IMMEDIATE ADDRESSING
+634     1       2       a       8       JUMP
+636     8       4       3               SET; REGISTER ADDRESSING
+638     4       e       7       2       SKIP ON NOT EQUALS; IMMEDIATE ADDRESSING
+63A     1       8       6       6       JUMP
+63C     a       8       a       8       SET INDEX
+63E     a       8       a       8       SET INDEX
+640     a       8       a       8       SET INDEX
+642     9               5       4       SKIP ON NOT EQUALS; REGISTER ADDRESSING
+644     7       8       a       8       ADD; IMMEDIATE ADDRESSING 
+646     4       8       7       8       SKIP ON NOT EQUALS; IMMEDIATE ADDRESSING
+648     6       c       7       2       SET; IMMEDIATE ADDRESSING
+64A     a       8       1       2       SET INDEX
+64C     1       8       6       c       JUMP
+64E     7       2       6       6       ADD; IMMEDIATE ADDRESSING
+650     5       4       9               SKIP ON EQUALS; REGISTER ADDRESSING
+652     a       8       7       2       SET INDEX
+654     2       a       1       8       CALL SUBROUTINE
+656     a       8       3               SET INDEX
+658     4       e       7       e       SKIP ON NOT EQUALS; IMMEDIATE ADDRESSING
+65A                     1       2       MACHINE LANGUAGE ROUTINE
+65C     1       8       6       6       JUMP
+65E     6       c       a       8       SET; IMMEDIATE ADDRESSING
+660     7       2       5       4       ADD; IMMEDIATE ADDRESSING
+662     a       8       5       a       SET INDEX
+664     6       6       1       8       SET; IMMEDIATE ADDRESSING
+666     7       e       1       8       ADD; IMMEDIATE ADDRESSING
+668     4       e       7       2       SKIP ON NOT EQUALS; IMMEDIATE ADDRESSING
+66A     a       8       7       2       SET INDEX
+66C     2       a       1       8       CALL SUBROUTINE
+66E     3               6       6       SKIP ON EQUALS; IMMEDIATE ADDRESSING
+670     a       8       3               SET INDEX
+672     4       e       7       e       SKIP ON NOT EQUALS; IMMEDIATE ADDRESSING
+674                     6       c       MACHINE LANGUAGE ROUTINE
+676     3               5       4       SKIP ON EQUALS; IMMEDIATE ADDRESSING
+678     4       e       9       c       SKIP ON NOT EQUALS; IMMEDIATE ADDRESSING
+67A     a       8       a       8       SET INDEX
+67C     a       8       a       8       SET INDEX
+67E     a       8       a       8       SET INDEX
+680     a       8       4       8       SET INDEX
+682     5       4       7       e       SKIP ON EQUALS; REGISTER ADDRESSING
+684     1       8       a       8       JUMP
+686     9               5       4       SKIP ON NOT EQUALS; REGISTER ADDRESSING
+688     7       8       6       6       ADD; IMMEDIATE ADDRESSING
+68A     a       8       6       c       SET INDEX
+68C     2       a       3               CALL SUBROUTINE
+68E     5       a       a       8       SKIP ON EQUALS; REGISTER ADDRESSING
+690     8       4       3               SET; REGISTER ADDRESSING
+692     7       2       2       a       ADD; IMMEDIATE ADDRESSING
+694     a       8       d       8       SET INDEX
+696     a       8                       SET INDEX
+698     4       e       1       2       SKIP ON NOT EQUALS; IMMEDIATE ADDRESSING
+69A     a       8       e       4       SET INDEX
+69C     a       2       a       8       SET INDEX
+69E                     4       e       MACHINE LANGUAGE ROUTINE
+6A0     1       2       a       8       JUMP
+6A2     6       c       2       a       SET; IMMEDIATE ADDRESSING
+6A4     5       4       5       4       SKIP ON EQUALS; REGISTER ADDRESSING
+6A6     7       2       a       8       ADD; IMMEDIATE ADDRESSING
+6A8     8       4       3               SET; REGISTER ADDRESSING
+6AA     7       2       2       a       ADD; IMMEDIATE ADDRESSING
+6AC     a       8       d       e       SET INDEX
+6AE     9       c       a       8       SKIP ON NOT EQUALS; REGISTER ADDRESSING
+6B0     7       2       2       a       ADD; IMMEDIATE ADDRESSING
+6B2     1       8       a       8       JUMP
+6B4             c       5       4       MACHINE LANGUAGE ROUTINE
+6B6     4       8       5       a       SKIP ON NOT EQUALS; IMMEDIATE ADDRESSING
+6B8     7       8       7       2       ADD; IMMEDIATE ADDRESSING
+6BA     1       8       6       6       JUMP
+6BC     a       8       6       6       SET INDEX
+6BE     1       8       5       a       JUMP
+6C0     5       4       6       6       SKIP ON EQUALS; REGISTER ADDRESSING
+6C2     7       2       6       c       ADD; IMMEDIATE ADDRESSING
+6C4     a       8       7       2       SET INDEX
+6C6     2       a                       CALL SUBROUTINE
+6C8     7       2       a       8       ADD; IMMEDIATE ADDRESSING
+6CA     7       2       2       a       ADD; IMMEDIATE ADDRESSING
+6CC     1       8       a       8       JUMP
+6CE     3               4       e       SKIP ON EQUALS; IMMEDIATE ADDRESSING
+6D0     7       e                       ADD; IMMEDIATE ADDRESSING
+6D2     1       2       1       8       JUMP
+6D4     6       6       6       c       SET; IMMEDIATE ADDRESSING
+6D6     a       8                       SET INDEX
+6D8     6       6       1       8       SET; IMMEDIATE ADDRESSING
+6DA     a       8       3               SET INDEX
+6DC     4       e               c       SKIP ON NOT EQUALS; IMMEDIATE ADDRESSING
+6DE     6       6       1       8       SET; IMMEDIATE ADDRESSING
+6E0                     6       c       MACHINE LANGUAGE ROUTINE
+6E2     3               4       e       SKIP ON EQUALS; IMMEDIATE ADDRESSING
+6E4     2       4       a       8       CALL SUBROUTINE
+6E6     7       2       2       a       ADD; IMMEDIATE ADDRESSING
+6E8     1       8       3               JUMP
+6EA     6       6       a       8       SET; IMMEDIATE ADDRESSING
+6EC     1       e       5       4       JUMP
+6EE     6       6               c       SET; IMMEDIATE ADDRESSING
+6F0     1       8       9       c       JUMP
+6F2     a       8       2       4       SET INDEX
+6F4     5       4       5       4       SKIP ON EQUALS; REGISTER ADDRESSING
+6F6     1       2       a       8       JUMP
+6F8     4       2       7       8       SKIP ON NOT EQUALS; IMMEDIATE ADDRESSING
+6FA             c       3       c       MACHINE LANGUAGE ROUTINE
+6FC     a       8       a       e       SET INDEX
+6FE     a       8       a       8       SET INDEX
+700     a       8       a       8       SET INDEX
+702     a       8       a       8       SET INDEX
+704     a       8       f       f       SET INDEX
