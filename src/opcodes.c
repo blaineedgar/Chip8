@@ -1,7 +1,6 @@
 //define opcodes!!
 //i should be finally ready to define the 
-
-#include <SDL2/SDL.h>
+#include "SDL2/SDL.h" 
 #include <chip8.h>
 #include <math.h>
 #include <stdio.h>
@@ -21,9 +20,6 @@ void clearScreen(chip8* chip8){
 
 void returnFromSubroutine(chip8* chip8){
     //00EE
-    //how tf does the stack wrk
-    //the stack will work with a array based stack. how will behave?
-    //i could increment through the stack until i find an invalid value. becasue I do not think I will have a stack pointer. Or maybe I will??
     chip8->PC = chip8->STACK[chip8->SP];
     chip8->SP -=1;
 }
@@ -40,26 +36,20 @@ void jump(chip8* chip8,int* nibbles){
     //concatenate the nibbles 
 
     uint16_t address = (nibbles[1]*pow(16,2) + (nibbles[2]*16) + nibbles[3]);
-    //printf("\n[%d][%d][%d]\n",nibbles[1],nibbles[2],nibbles[3]);
-    //printf("\n\nthe address is %d\n",address);
     chip8->PC = address - 2;
     
 }
 
 void callSubroutine(chip8* chip8,int* nibbles){
     //2NNN
-
-    //set and push PC to stack.
-
     uint16_t address = (nibbles[1]*pow(16,2) + (nibbles[2]*16) + nibbles[3]);
-    //printf("\n\nthe address is %0X\n",address);
     chip8->STACK[++chip8->SP] = chip8->PC;
     chip8->PC = address - 2;
 }
 
 void seqImmediate(chip8* chip8,int* nibbles){
     //3XKK
-    //SE 
+    //SEQ
     if(chip8->V[nibbles[1]]==(nibbles[2]*16 + nibbles[3])){
         chip8->PC+=2;
     }
@@ -75,7 +65,6 @@ void sneImmediate(chip8* chip8, int* nibbles){
 
 void seqDRD(chip8* chip8, int* nibbles){
     //5XY0
-
     if(chip8->V[nibbles[1]]==chip8->V[nibbles[2]]){
         chip8->PC+=2;
     }
@@ -83,18 +72,12 @@ void seqDRD(chip8* chip8, int* nibbles){
 
 void setImmediate(chip8* chip8, int* nibbles){
     //6XKK
-
-    //well set vx to the last 2 nibbles
     chip8->V[nibbles[1]]=(nibbles[2]*16 + nibbles[3]);
-
-
 }
 
 void addImmediate(chip8* chip8, int* nibbles){
     //7XKK
-//maybe dont do this?
-    //add , ignore setting flags
-
+    //ambiguous
     chip8->V[nibbles[1]]+=((nibbles[2]*16)+nibbles[3]);
     /*
     if(chip8->V[0]==0xFF&&nibbles[1]==0&&nibbles[2]==0&&nibbles[3]==1){
@@ -107,11 +90,6 @@ void addImmediate(chip8* chip8, int* nibbles){
             chip8->V[nibbles[1]]+=((nibbles[2]*16)+nibbles[3]);
             chip8->V[0xF] = chip8->V[0xF]&0;
         }
-    }*/
-
-    /*
-    if(chip8->V[nibbles[1]]>=255){//if overflow
-        
     }*/
 }
 

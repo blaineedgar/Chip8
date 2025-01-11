@@ -9,7 +9,6 @@
  * @param chip8 structure of memory to duomp
  */
 void memory_Dump(chip8 chip8){
-    //check for unitiialized bytes and then stop
     for(int i=0;i<4096;i++){
         printf("%0X;%0X\t",i,chip8.RAM[i]);
     }
@@ -17,8 +16,10 @@ void memory_Dump(chip8 chip8){
 }
 
 /**
- * SET KEYPAD for degbuggging
- * 
+ * SET KEYPAD for degbugging
+ * @param chip8 chip8 system we are writing to.
+ * @param configs pass in the configuarations structure in case I add a feature where the user can remap keys
+ * @param windowEvent this is how the events will be processed
  */
 void set_keypad(chip8* chip8, configs * configs,SDL_Event* windowEvent){
     (void)configs;
@@ -32,22 +33,8 @@ void set_keypad(chip8* chip8, configs * configs,SDL_Event* windowEvent){
                     break;
             }
 
-/*
-            if(SDL_MOUSEBUTTONDOWN){
-                //xor the state of debug mode
-                //chip8Configs->debugMode^=true;
 
-                if(chip8Configs->debugMode){
-                    chip8Configs->debugMode=false;
-                }else if(!chip8Configs->debugMode){
-                    chip8Configs->debugMode=true;
-                }
-            }
-           */
             if(SDL_KEYDOWN == windowEvent->type){
-                //printf("Key is down\n");
-
-                //distinguish among the keys. switch??
                 switch(windowEvent->key.keysym.sym){
                     case(SDLK_1):
                         if(!chip8->keypad[1]){
@@ -175,68 +162,43 @@ void set_keypad(chip8* chip8, configs * configs,SDL_Event* windowEvent){
     printf("\n%d %d %d %d\n%d %d %d %d\n%d %d %d %d\n%d %d %d %d\n",chip8->keypad[1],chip8->keypad[2],chip8->keypad[3],chip8->keypad[0xC],chip8->keypad[4],chip8->keypad[5],chip8->keypad[6],chip8->keypad[0xD],chip8->keypad[7],chip8->keypad[8],chip8->keypad[9],chip8->keypad[0xE],chip8->keypad[0xA],chip8->keypad[0],chip8->keypad[0xB],chip8->keypad[0xF]);
 }
 
-
+/**
+ * here we dump the decoded memory instructions.
+ * @param system In this function we decode the ram of this chip8 structure
+ */
 void decodeDump(chip8 system){
     system.PC = 0;
 
     uint8_t buffer;
     int nibbles[4];
-
-
-
-    for(system.PC=0x200;system.PC<4096;system.PC+=2){
+    for(system.PC=0x201;system.PC<4096;system.PC+=2){
 
         buffer = system.RAM[system.PC];
-        //printf("%2.x\n",buffer);
         nibbles[0]=buffer/16;
         nibbles[1]=buffer%16;
-
-        //fseek(fptr,1,SEEK_CUR);
         buffer = system.RAM[system.PC+1];
-        //printf("%2.x\n",buffer);
         nibbles[2]=buffer/16;
         nibbles[3]=buffer%16;
 
-
-        //system.PC+=2;
-        //assuming it dosen
-        /*
-        if(nibbles[0]==15&&nibbles[1]==15&&nibbles[2]==15&&nibbles[3]==15){
-            break;
-        }*/
-
-       //breakpoint
-        if(system.PC==0x716){
+        //breakpoint
+        /*the user can add break points in the memory, because scrolling through all 4096 bytes of memory is too much
+        if(system.PC==0x717){
             break; 
         }
+        */
 
-
-
-        //printf("%1.x\t%1.x\t%1.x\t%1.x\n",nibbles[0],nibbles[1],nibbles[2],nibbles[3]);
-
-        //THE HEART OF THE EMULATOR
-
-        //it doesnt matter, but why does what is initialized and unchanged from 0x FF bceom seemingly random after 0x 900 (2304)
-
-        //so yeah, essentially it is correctly initialized all to FF, but for some readon once I get past 0x900 it begins to spit out gibberish and zeros.it ends at FA8
-        //everything else works, and assuming the program has proper control flow it should not be an issue
-
-        //ill need to spit out the registers with each instruction and essentially go step by step through a program and validate each instruction
-
-        
-    configs chip8Configs;
-    //set the defaults
-    chip8Configs.debugMode=true;
+        //I am reusing the code from the main
+        configs chip8Configs;
+        chip8Configs.debugMode=true;
         
         printf("%0X\t",system.PC);
         switch(nibbles[0]){
             case(0x0):
-                //printf("either 0NNN, 00E0, or 00EE\n");
                 if(nibbles[1]==0&&nibbles[2]==0xE&&nibbles[3]==0x0){
+                    if(chip8Configs.debugMode)printf("%1.x\t%1.x\t%1.x\t%1.x\tCLEAR SCREEN\n",nibbles[0],nibbles[1],nibbles[2],nibbles[3]);
                 }else if(nibbles[1]==0&&nibbles[2]==0xE&&nibbles[3]==0xE){
                     if(chip8Configs.debugMode)printf("%1.x\t%1.x\t%1.x\t%1.x\tRETURN FROM SUBROUTINE\n",nibbles[0],nibbles[1],nibbles[2],nibbles[3]);
                 }else{
-                    //ignore
                     if(chip8Configs.debugMode)printf("%1.x\t%1.x\t%1.x\t%1.x\tMACHINE LANGUAGE ROUTINE\n",nibbles[0],nibbles[1],nibbles[2],nibbles[3]);
                 }
                 break;
@@ -321,7 +283,7 @@ void decodeDump(chip8 system){
                 break;
             case(0xB):
                 //JUMP with offset
-                //ambigguosus
+                //ambiguous
                 if(chip8Configs.debugMode)printf("%1.x\t%1.x\t%1.x\t%1.x\tJJUMP WITH OFFSET\n",nibbles[0],nibbles[1],nibbles[2],nibbles[3]);
                 break;
             case(0xC):
@@ -334,8 +296,6 @@ void decodeDump(chip8 system){
                 break;
             case(0xE):
                 //type of user input
-
-                //WTFFFFFFF how to do this
                 if(nibbles[2]==9&&nibbles[3]==0xE){
                     //skip if X is pressed
                     if(chip8Configs.debugMode)printf("%1.x\t%1.x\t%1.x\t%1.x\tSKIP IF X\n",nibbles[0],nibbles[1],nibbles[2],nibbles[3]);
@@ -349,7 +309,6 @@ void decodeDump(chip8 system){
                 break;
             case(0xF):
                 //timers,index,get key,font,binary to decimal
-
                 if(nibbles[2]==0&&nibbles[3]==7){
                     //set vx to the delay timer
                     if(chip8Configs.debugMode)printf("%1.x\t%1.x\t%1.x\t%1.x\tSET VX TO DT\n",nibbles[0],nibbles[1],nibbles[2],nibbles[3]);
