@@ -66,6 +66,8 @@ chip8 init_chip8(FILE * fptr){
 void handleInput(chip8* chip8, configs* chip8Configs,SDL_Event* windowEvent){
     //here we will update an array of the keypad
 
+    (void)chip8Configs;
+
     while(SDL_PollEvent(windowEvent)){
             if(SDL_QUIT == windowEvent->type){
                 exit(EXIT_SUCCESS);
@@ -124,7 +126,7 @@ void handleInput(chip8* chip8, configs* chip8Configs,SDL_Event* windowEvent){
                         break;
 
                     case(SDLK_SPACE):
-                        chip8Configs->debugMode=true;
+                        //chip8Configs->debugMode=true;
                         break;
                     default:
                 }
@@ -207,7 +209,7 @@ int main(int argc, char** argv){
     SDL_Window *window = NULL;
     SDL_Renderer *renderer = NULL;
 
-    if(!init_sdl(&window,renderer,chip8Configs)) exit(EXIT_FAILURE);
+    //if(!init_sdl(&window,renderer,chip8Configs)) exit(EXIT_FAILURE);
 
     SDL_CreateWindowAndRenderer(W*chip8Configs.scaleFactor,H*chip8Configs.scaleFactor,0,&window,&renderer);
 
@@ -249,7 +251,7 @@ int main(int argc, char** argv){
     uint8_t buffer;
     int nibbles[4];
 
-    bool undefinedInstruction=false;
+    //bool undefinedInstruction=false;
 
     int x;
     system.PC = 0x200;
@@ -421,7 +423,7 @@ int main(int argc, char** argv){
                     default:
                         //invalid
                         if(chip8Configs.debugMode)printf("%1.x\t%1.x\t%1.x\t%1.x\tSPRITES\n",nibbles[0],nibbles[1],nibbles[2],nibbles[3]);
-                        undefinedInstruction=true;
+                        //undefinedInstruction=true;
                 }
                 break;
             case(9):
@@ -463,7 +465,7 @@ int main(int argc, char** argv){
                 }else{
                     //invalid
                     if(chip8Configs.debugMode)printf("%1.x\t%1.x\t%1.x\t%1.x\tSPRITES\n",nibbles[0],nibbles[1],nibbles[2],nibbles[3]);
-                    undefinedInstruction=true;
+                    //undefinedInstruction=true;
                 }
                 break;
             case(0xF):
@@ -510,13 +512,13 @@ int main(int argc, char** argv){
                 }else{
                     //invalid
                     if(chip8Configs.debugMode)printf("%1.x\t%1.x\t%1.x\t%1.x\tSPRITES\n",nibbles[0],nibbles[1],nibbles[2],nibbles[3]);
-                    undefinedInstruction=true;
+                    //undefinedInstruction=true;
                 }
                 break;
             default:
                 //invalid
                 if(chip8Configs.debugMode)printf("%1.x\t%1.x\t%1.x\t%1.x\tSPRITES\n",nibbles[0],nibbles[1],nibbles[2],nibbles[3]);
-                undefinedInstruction=true;
+                //undefinedInstruction=true;
         }
         //Debug
         if(chip8Configs.debugMode){

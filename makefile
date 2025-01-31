@@ -16,7 +16,7 @@ display:
 	gcc -g $(CFLAGS) -I$(INCLUDES) -L$(LIBS) -O2 -o build/display.o -c src/display.c
 
 debug:
-	gcc -g $(CFLAGS) -I$(INCLUDES) -L$(LIBS) -O2 -o build/debug.o -c src/debug.c
+	gcc -g $(CFLAGS) -I$(INCLUDES) -L$(LIBS) -o build/debug.o -c src/debug.c
 
 clean:
 	rm -f chip8

@@ -16,7 +16,7 @@
 21F     5       7       4       9       SKIP ON EQUALS; REGISTER ADDRESSING
 221     4       e       5       4       SKIP ON NOT EQUALS; IMMEDIATE ADDRESSING
 223     4       5       5       2       SKIP ON NOT EQUALS; IMMEDIATE ADDRESSING
-225     6                               SET; IMMEDIATE ADDRESSING
+225     6                               SET; IMMEDIATE ADDRESSING                   ;code starts
 227     6       1                       SET; IMMEDIATE ADDRESSING
 229     6       2               8       SET; IMMEDIATE ADDRESSING
 22B     a       3       d       d       SET INDEX
